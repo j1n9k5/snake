@@ -185,10 +185,12 @@ void InitItface(void)
         {
             if(i == 0 || i == windowY - 1 || j == 0 || j == windowX / 2 -1 || j == windowY - 1)
             {
+                SetColor(6, 15);
                 printf("%c%c", 0xa8, 0x80);
             }
             else
             {
+                SetColor(10, 0);
                 printf("  ");
             }
         }
@@ -198,6 +200,7 @@ void InitItface(void)
         }
     }
     //文字界面
+    SetColor(10, 0);
     SetPos(78, 8);
     printf("得分：%-3d", point);
     SetPos(78, 10);
