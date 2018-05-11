@@ -353,6 +353,10 @@ void RePrintSnake(void)
     newHead->next = head; //生成新的头并指向旧的头
     head = newHead; //head指针指向新头
 
+    //先隐藏旧尾 后打印新头 若先打印头后隐藏尾当头运动到尾部时会被掩盖
+    //隐藏旧尾 index->next 就是尾
+    SetPos(index->next->x, index->next->y);
+    printf("  ");
 
     //打印新头
     SetPos(head->x, head->y);
@@ -363,10 +367,6 @@ void RePrintSnake(void)
 
     SetColor(14, 0);//旧的蛇头还原为黄色
     printf("%c%c", 0xa8, 0x80);
-
-    //隐藏旧尾 index->next 就是尾
-    SetPos(index->next->x, index->next->y);
-    printf("  ");
 
 
     //给旧尾赋值
